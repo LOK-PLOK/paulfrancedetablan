@@ -92,6 +92,9 @@ ThemePicker is now a single header button (beside the mobile menu toggle, visibl
 ## Hero info list (2026-11-15)
 xl (≥1280): right-hand column (20rem, border-l) with each label (small, primary) above its value, so no value wraps. Below xl: aligned label/value rows (shared `max-content` label column) under the intro. Buttons stay in the name column (info `dl` is `xl:row-span-2`), sized text-xs / px-2.5 py-2 / 14px icons / 34px icon buttons so all five fit one row at ≥1024 without reaching the info column. Note: dt/dd sit in `div.contents` wrappers, so `last:` variants match every dd.
 
+## Send Email is a plain link (2026-11-15)
+The Gmail/Outlook/Mail-app popover was removed at Paul's request: Send Email is now a `mailto:` link (visitor's default mail app). `.email-menu`/`.email-anchor` CSS removed.
+
 ## Known issues / not verified
 - Not tested: real devices, Safari/Firefox, Lighthouse, screen readers (only ARIA/DOM checked).
 - No certificate logos; no PhilNITS PDF.

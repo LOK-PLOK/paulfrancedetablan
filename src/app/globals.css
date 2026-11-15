@@ -86,10 +86,3 @@ details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
 details[open] > .details-body { animation: reveal 180ms ease-out; }
 @keyframes reveal { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
-
-/* Send Email menu (native popover). Anchor it under its button where CSS anchor positioning exists;
-   elsewhere the UA popover styles centre it on screen, which is still usable. */
-.email-anchor { anchor-name: --email-btn; }
-@supports (position-area: bottom) {
-  .email-menu { position-anchor: --email-btn; position-area: bottom span-right; inset: auto; margin: 6px 0 0; }
-}

@@ -1,4 +1,4 @@
-import { ArrowUpRight, ChevronDown, Mail, UserRound } from "lucide-react";
+import { Mail, UserRound } from "lucide-react";
 import Image from "next/image";
 import { profile } from "@/data/profile";
 import { assets } from "@/lib/assets";
@@ -37,47 +37,6 @@ const outlineBtn =
   "inline-flex items-center gap-1.5 rounded border border-line px-2.5 py-2 text-xs font-bold text-fg transition-colors hover:border-primary hover:text-primary";
 const iconBtn =
   "inline-flex size-[34px] items-center justify-center rounded border border-line text-fg transition-colors hover:border-primary hover:text-primary";
-
-const enc = encodeURIComponent(profile.email);
-const emailOptions = [
-  { label: "Gmail", href: `https://mail.google.com/mail/?view=cm&fs=1&to=${enc}`, external: true },
-  { label: "Outlook", href: `https://outlook.live.com/mail/0/deeplink/compose?to=${enc}`, external: true },
-  { label: "Mail app", href: `mailto:${profile.email}`, external: false },
-];
-
-// Native popover (no JS): light-dismiss and Escape built in; anchored below the button where
-// CSS anchor positioning is supported, otherwise the browser centres it (see .email-menu in globals.css).
-function EmailMenu() {
-  return (
-    <>
-      <button
-        type="button"
-        popoverTarget="email-menu"
-        className="email-anchor inline-flex items-center gap-1.5 rounded bg-primary px-2.5 py-2 text-xs font-bold text-bg transition-opacity hover:opacity-90"
-      >
-        <Mail size={14} aria-hidden /> Send Email <ChevronDown size={12} aria-hidden />
-      </button>
-      <div id="email-menu" popover="auto" className="email-menu w-48 rounded-md border border-line bg-surface p-1 text-sm text-fg shadow-lg">
-        <p className="px-3 pb-1 pt-2 text-xs text-muted">Write an email with</p>
-        <ul>
-          {emailOptions.map((o) => (
-            <li key={o.label}>
-              <a
-                href={o.href}
-                {...(o.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="flex items-center justify-between rounded px-3 py-2 hover:bg-bg hover:text-primary"
-              >
-                {o.label}
-                {o.external ? <ArrowUpRight size={14} aria-hidden className="text-primary" /> : null}
-                {o.external ? <span className="sr-only">(opens in a new tab)</span> : null}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
-  );
-}
 
 export function Hero() {
   const title = "paul@lokko";
@@ -119,7 +78,12 @@ export function Hero() {
               ) : null}
             </dl>
             <div className="flex flex-wrap items-start gap-2 md:col-start-2">
-              <EmailMenu />
+              <a
+                href={`mailto:${profile.email}`}
+                className="inline-flex items-center gap-1.5 rounded bg-primary px-2.5 py-2 text-xs font-bold text-bg transition-opacity hover:opacity-90"
+              >
+                <Mail size={14} aria-hidden /> Send Email
+              </a>
               <CopyEmailButton email={profile.email} />
               {assets.resume ? (
                 <PdfViewer
