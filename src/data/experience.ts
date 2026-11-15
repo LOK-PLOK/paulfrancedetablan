@@ -2,32 +2,34 @@ import type { ExperienceEntry } from "./types";
 
 export const experience: ExperienceEntry[] = [
   {
-    id: "whisky-cask-club",
-    kind: "work",
-    status: "current",
-    title: "AI | Full-Stack Engineer",
-    org: "Whisky Cask Club",
-    period: "Aug 2026 – Present",
-    bullets: [
-      "Designing and developing mobile applications with React Native, Expo and TypeScript.",
-      "Building web applications with React, Next.js, TypeScript and Tailwind CSS.",
-      "Working across Node.js backend services, application integrations and AI-related engineering.",
-    ],
-    tags: ["React Native", "Next.js", "Node.js", "Express.js", "TypeScript"],
-  },
-  {
     id: "contactpoint-360",
     kind: "work",
     status: "current",
     title: "Network Engineer | TSE | Paessler",
     org: "ContactPoint 360",
     period: "Aug 2026 – Present",
+    type: "Onsite",
     bullets: [
       "Providing network infrastructure support and technical troubleshooting for Paessler clients.",
       "Investigating customer issues and analysing monitoring configurations through to resolution.",
       "Working with PRTG Network Monitor and PRTG Hosted Monitor.",
     ],
     tags: ["PRTG Network Monitor", "PRTG Hosted Monitor", "Wireshark", "PowerShell"],
+  },
+  {
+    id: "whisky-cask-club",
+    kind: "work",
+    status: "current",
+    title: "AI | Full-Stack Engineer",
+    org: "Whisky Cask Club",
+    period: "Aug 2026 – Present",
+    type: "Remote · Freelance",
+    bullets: [
+      "Designing and developing mobile applications with React Native, Expo and TypeScript.",
+      "Building web applications with React, Next.js, TypeScript and Tailwind CSS.",
+      "Working across Node.js backend services, application integrations and AI-related engineering.",
+    ],
+    tags: ["React Native", "Next.js", "Node.js", "Express.js", "TypeScript"],
   },
   {
     id: "ecomia",
