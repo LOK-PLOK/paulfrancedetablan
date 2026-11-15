@@ -24,17 +24,18 @@ export function ThemePicker() {
   const active = useSyncExternalStore(subscribe, current, () => defaultTheme as ThemeId);
   const index = themes.findIndex((t) => t.id === active);
   const next = themes[(index + 1) % themes.length];
+  const label = themes[index]?.label ?? defaultTheme;
 
   // One button: shows the current theme in its own accent colour; clicking moves to the next theme.
   return (
     <button
       type="button"
       onClick={() => apply(next.id)}
-      aria-label={`Theme: ${themes[index]?.label ?? "Default"}. Switch to ${next.label}`}
+      aria-label={`Theme: ${label}. Switch to ${next.label}`}
       className="inline-flex items-center gap-2 rounded border border-primary-dim px-2.5 py-1 text-sm text-primary transition-colors hover:border-primary hover:bg-surface"
     >
       <span aria-hidden className="size-2.5 rounded-sm bg-primary" />
-      {themes[index]?.label ?? "Default"}
+      {label}
     </button>
   );
 }

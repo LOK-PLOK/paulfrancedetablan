@@ -95,6 +95,12 @@ xl (≥1280): right-hand column (20rem, border-l) with each label (small, primar
 ## Send Email is a plain link (2026-11-15)
 The Gmail/Outlook/Mail-app popover was removed at Paul's request: Send Email is now a `mailto:` link (visitor's default mail app). `.email-menu`/`.email-anchor` CSS removed.
 
+## Status green (2026-11-15, branch develop)
+`--color-status: #4ade80` in `@theme` (globals.css), never redefined by `[data-theme]` blocks, so `text-status`/`bg-status` stay green in every theme. Used by: hero "● online" tag, availability dot, Experience CURRENT badge (`border-status/40 bg-status/10 text-status`) and current-role timeline dots. Past-role dots keep `border-primary-dim bg-bg`; Education has no dots. Contrast of the green text ≥7.2:1 in all 9 themes.
+
+## Themes: Default removed, Vanta Black is the default (2026-11-15, branch develop)
+The "default" theme (original green, later tried as random-accent and monochrome) is removed: 8 themes remain and `defaultTheme = "vantablack"`; `@theme` fallback tokens now equal Vanta Black. A visitor with a saved "default" falls back to Vanta Black (not in the whitelist). Hero Send Email is `bg-status text-black` (status green in every theme). themeColor #000000.
+
 ## Known issues / not verified
 - Not tested: real devices, Safari/Firefox, Lighthouse, screen readers (only ARIA/DOM checked).
 - No certificate logos; no PhilNITS PDF.

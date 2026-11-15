@@ -23,7 +23,7 @@ function Timeline({ kind, id, title }: { kind: ExperienceEntry["kind"]; id: stri
                 <span
                   aria-hidden
                   className={`absolute -left-7 top-[1.15rem] size-[11px] rounded-full ${
-                    current ? "bg-primary" : "border-2 border-primary-dim bg-bg"
+                    current ? "bg-status" : "border-2 border-primary-dim bg-bg"
                   }`}
                 />
               ) : null}
@@ -33,7 +33,7 @@ function Timeline({ kind, id, title }: { kind: ExperienceEntry["kind"]; id: stri
                   <h3 className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-fg">
                     {e.title}
                     {current ? (
-                      <span className="rounded-sm border border-primary-dim bg-primary-dim/30 px-1.5 py-px text-[10px] font-bold tracking-wider text-primary">
+                      <span className="rounded-sm border border-status/40 bg-status/10 px-1.5 py-px text-[10px] font-bold tracking-wider text-status">
                         CURRENT
                       </span>
                     ) : null}

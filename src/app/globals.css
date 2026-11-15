@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #08080e;
-  --color-surface: #101118;
-  --color-primary: #83f6a5;
-  --color-primary-dim: #315b3e;
-  --color-fg: #dbece2;
-  --color-fg-2: #a9b9af;
-  --color-line: #294334;
-  --color-muted: #7c9585;
+  /* Fallback = Vanta Black (the default theme); each [data-theme] block below overrides these. */
+  --color-bg: #000000;
+  --color-surface: #090909;
+  --color-primary: #8d8d8d;
+  --color-primary-dim: #313131;
+  --color-fg: #ffffff;
+  --color-fg-2: #b0b0b0;
+  --color-line: #1a1a1a;
+  --color-muted: #7a7a7a;
+  /* Status green (online / available / current role, Send Email button). Deliberately NOT redefined by any [data-theme] block. */
+  --color-status: #4ade80;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
@@ -18,10 +21,6 @@
    muted (and Miasma's primary/fg-2) lifted toward the foreground to reach >= 4.5:1 on cards.
    Kanagawa's accent equals its foreground, so its crystal blue is primary; Osaka Jade uses its
    brighter green because the accent #509475 is too dim for small text. Keep ids in sync with src/data/themes.ts. */
-[data-theme="default"] {
-  --color-bg: #08080e; --color-surface: #101118; --color-primary: #83f6a5; --color-primary-dim: #315b3e;
-  --color-fg: #dbece2; --color-fg-2: #a9b9af; --color-line: #294334; --color-muted: #7c9585;
-}
 [data-theme="tokyo-night"] {
   --color-bg: #13141c; --color-surface: #1a1b26; --color-primary: #7aa2f7; --color-primary-dim: #374669;
   --color-fg: #c0caf5; --color-fg-2: #a9b1d6; --color-line: #292e42; --color-muted: #7b83ab;

@@ -1,6 +1,5 @@
 // Colour schemes; each `id` has a matching [data-theme="<id>"] block in src/app/globals.css.
 export const themes = [
-  { id: "default", label: "Default" }, // the original Omarchy black-and-green design
   { id: "tokyo-night", label: "Tokyo Night" },
   { id: "nord", label: "Nord" },
   { id: "kanagawa", label: "Kanagawa" },

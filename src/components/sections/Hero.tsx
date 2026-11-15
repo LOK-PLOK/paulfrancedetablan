@@ -43,7 +43,7 @@ export function Hero() {
   return (
     <section id="hero" aria-labelledby="hero-name" className="mx-auto max-w-6xl px-5 pb-4 pt-8 sm:pt-10">
       {/* One terminal window rendered as `fastfetch` output: photo in the logo slot, info as coloured keys. */}
-      <Window path="~ — zsh" tag="● online">
+      <Window path="~ — zsh" tag={<span className="text-status">● online</span>}>
         <div className="p-5 sm:p-8">
           <p className="mb-6 text-sm text-fg-2" aria-hidden>
             <span className="font-bold text-primary">$</span> fastfetch
@@ -71,7 +71,7 @@ export function Hero() {
                 <div className="contents">
                   <dt className="text-primary xl:mb-0.5 xl:text-xs">status</dt>
                   <dd className="flex items-start gap-2 text-fg">
-                    <span aria-hidden className="mt-1.5 size-2 shrink-0 rounded-full bg-primary" />
+                    <span aria-hidden className="mt-1.5 size-2 shrink-0 rounded-full bg-status" />
                     {profile.availability.label}
                   </dd>
                 </div>
@@ -80,7 +80,7 @@ export function Hero() {
             <div className="flex flex-wrap items-start gap-2 md:col-start-2">
               <a
                 href={`mailto:${profile.email}`}
-                className="inline-flex items-center gap-1.5 rounded bg-primary px-2.5 py-2 text-xs font-bold text-bg transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-1.5 rounded bg-status px-2.5 py-2 text-xs font-bold text-black transition-opacity hover:opacity-90"
               >
                 <Mail size={14} aria-hidden /> Send Email
               </a>
