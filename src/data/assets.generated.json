@@ -1,0 +1,13 @@
+{
+  "profile": "/images/profile/paul-profile.webp",
+  "resume": "/resume/paul-detablan-resume.pdf",
+  "logos": {},
+  "documents": {
+    "cisco-cybersecurity-essentials": "/certifications/documents/cisco-cybersecurity-essentials.pdf",
+    "cisco-intro-cybersecurity": "/certifications/documents/cisco-intro-cybersecurity.pdf",
+    "paessler-monitoring-professional": "/certifications/documents/paessler-monitoring-professional.pdf",
+    "powershell-scripting-essentials": "/certifications/documents/powershell-scripting-essentials.pdf",
+    "tcpip-analysis-wireshark": "/certifications/documents/tcpip-analysis-wireshark.pdf",
+    "topcit-level-2": "/certifications/documents/topcit-level-2.pdf"
+  }
+}

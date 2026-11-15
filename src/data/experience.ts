@@ -1,0 +1,71 @@
+import type { ExperienceEntry } from "./types";
+
+export const experience: ExperienceEntry[] = [
+  {
+    id: "whisky-cask-club",
+    kind: "work",
+    status: "current",
+    title: "AI | Full-Stack Engineer",
+    org: "Whisky Cask Club",
+    period: "Aug 2026 – Present",
+    bullets: [
+      "Designing and developing mobile applications with React Native, Expo and TypeScript.",
+      "Building web applications with React, Next.js, TypeScript and Tailwind CSS.",
+      "Working across Node.js backend services, application integrations and AI-related engineering.",
+    ],
+    tags: ["React Native", "Next.js", "Node.js", "Express.js", "TypeScript"],
+  },
+  {
+    id: "contactpoint-360",
+    kind: "work",
+    status: "current",
+    title: "Network Engineer | TSE | Paessler",
+    org: "ContactPoint 360",
+    period: "Aug 2026 – Present",
+    bullets: [
+      "Providing network infrastructure support and technical troubleshooting for Paessler clients.",
+      "Investigating customer issues and analysing monitoring configurations through to resolution.",
+      "Working with PRTG Network Monitor and PRTG Hosted Monitor.",
+    ],
+    tags: ["PRTG Network Monitor", "PRTG Hosted Monitor", "Wireshark", "PowerShell"],
+  },
+  {
+    id: "ecomia",
+    kind: "work",
+    status: "completed",
+    title: "Web Developer Intern",
+    org: "eComia",
+    period: "Feb 2026 – Apr 2026",
+    type: "Internship",
+    bullets: [
+      "Developed a feedback evaluation system with Next.js, TypeScript, Tailwind CSS, Node.js, Express, Prisma and MySQL.",
+      "Worked on system architecture, database design, ERDs, backend development and REST API integration.",
+    ],
+    tags: ["Next.js", "Express", "Prisma", "MySQL", "Node.js", "Jest", "Docker"],
+  },
+  {
+    id: "nextstepx",
+    kind: "work",
+    status: "completed",
+    title: "Software Developer",
+    org: "NextStepX Solutions Co.",
+    period: "Mar 2025 – Dec 2025",
+    type: "Part-time",
+    bullets: [
+      "Developed a medical management system with ASP.NET MVC, Bootstrap, SQL Server and Docker.",
+      "Built clinic dashboards, appointment and consultation workflows, and medical records functionality.",
+    ],
+    tags: ["ASP.NET MVC", "SQL Server", "Docker"],
+  },
+  {
+    id: "usc",
+    kind: "education",
+    status: "education",
+    title: "Bachelor of Science in Computer Science",
+    org: "University of San Carlos",
+    period: "Aug 2023 – Jul 2026",
+    bullets: [],
+    tags: [],
+    meta: { location: "Cebu, Philippines", honors: "Cum Laude", gpa: "GPA 1.60" },
+  },
+];

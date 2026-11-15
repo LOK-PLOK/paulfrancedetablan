@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+.env*.local
+.vercel
+.DS_Store
+# OpenPencil design backups stay local; docs/design/portfolio.op is the committed source
+docs/design/*.backup-*.op
