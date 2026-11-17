@@ -1,6 +1,7 @@
 import { Mail, UserRound } from "lucide-react";
 import Image from "next/image";
 import { profile } from "@/data/profile";
+import { defaultTheme, themes } from "@/data/themes";
 import { assets } from "@/lib/assets";
 import { CopyEmailButton } from "@/components/ui/CopyEmailButton";
 import { GithubIcon } from "@/components/ui/GithubIcon";
@@ -8,27 +9,37 @@ import { LinkedinIcon } from "@/components/ui/LinkedinIcon";
 import { PdfViewer } from "@/components/ui/PdfViewer";
 import { Window } from "@/components/ui/Window";
 
+// All themed portraits are server-rendered; CSS shows the one matching <html data-theme>, so the right photo
+// is visible before hydration (no flicker). Hidden ones are lazy, so only the active portrait downloads.
+// The generic profile photo sits underneath as a fallback if a themed file fails to load.
+const showActivePortrait = themes
+  .map((t) => `[data-theme="${t.id}"] [data-portrait="${t.id}"]{display:block}`)
+  .join("");
+
 function ProfilePhoto() {
-  if (assets.profile) {
-    return (
-      <Image
-        src={assets.profile}
-        alt={profile.photoAlt}
-        width={176}
-        height={176}
-        priority
-        className="size-32 shrink-0 rounded-xl border border-primary-dim object-cover sm:size-44"
-      />
-    );
-  }
   return (
-    <div
-      role="img"
-      aria-label="Profile photo placeholder"
-      className="flex size-32 shrink-0 flex-col items-center justify-center gap-2 rounded-xl border border-primary-dim bg-bg text-center sm:size-44"
-    >
-      <UserRound className="size-10 text-primary-dim sm:size-12" aria-hidden />
-      <span className="text-xs text-muted">profile photo</span>
+    <div className="relative size-32 shrink-0 overflow-hidden rounded-xl border border-primary-dim bg-bg sm:size-44">
+      <style>{showActivePortrait}</style>
+      {assets.profile ? (
+        <Image src={assets.profile} alt="" aria-hidden width={176} height={176} priority className="size-full object-cover" />
+      ) : (
+        <div className="flex size-full flex-col items-center justify-center gap-2 text-center">
+          <UserRound className="size-10 text-primary-dim sm:size-12" aria-hidden />
+          <span className="text-xs text-muted">profile photo</span>
+        </div>
+      )}
+      {themes.map((t) => (
+        <Image
+          key={t.id}
+          data-portrait={t.id}
+          src={t.portrait}
+          alt={`${profile.photoAlt}, ${t.label} theme`}
+          width={1254}
+          height={1254}
+          loading={t.id === defaultTheme ? "eager" : "lazy"}
+          className="absolute inset-0 hidden size-full object-cover"
+        />
+      ))}
     </div>
   );
 }

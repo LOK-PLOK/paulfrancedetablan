@@ -43,7 +43,8 @@ export function Certifications() {
           const doc = assets.documents[c.id];
           const logo = assets.logos[c.id];
           return (
-            <li key={c.id} className="group">
+            // min-w-0: lets the grid track shrink so the long window path truncates instead of overflowing on phones
+            <li key={c.id} className="group min-w-0">
               <Window
                 path={`~/certs/${c.id}`}
                 tag={doc ? <Actions id={c.id} title={c.title} doc={doc} /> : <span className="text-muted">no file yet</span>}

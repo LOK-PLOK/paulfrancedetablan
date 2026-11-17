@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { defaultTheme, themes, type ThemeId } from "@/data/themes";
 
 // The active theme lives on <html data-theme> (set before paint by the script in layout.tsx),
@@ -25,6 +25,14 @@ export function ThemePicker() {
   const index = themes.findIndex((t) => t.id === active);
   const next = themes[(index + 1) % themes.length];
   const label = themes[index]?.label ?? defaultTheme;
+
+  // The button only ever moves to `next`, so warm just that portrait: the switch shows it instantly
+  // without downloading all eight up front.
+  useEffect(() => {
+    const img = new Image();
+    img.src = next.portrait;
+    img.decode().catch(() => {}); // a missing file just falls back to the generic photo in Hero
+  }, [next.portrait]);
 
   // One button: shows the current theme in its own accent colour; clicking moves to the next theme.
   return (
